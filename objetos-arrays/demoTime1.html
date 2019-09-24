@@ -7,16 +7,36 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <main id="container">
+  </main>
+  <input type="text" placeholder="Chave" id="chave">
+  <input type="text" placeholder="Valor" id="valor">
+  <button onclick="adicionarInformacao()">Adicionar</button>
 </body>
 <script>
 // Coletar dados do usuário usando prompt
-
+const usuario = {
+  nome: 'Pedro',
+  idade: 22,
+  email: 'pedro.darvas@gmail.com',
+  chave: {}
+}
 
 // Imprimir informações do usuário no HTML
+const container = document.querySelector('#container')
+container.innerHTML += '<p>Nome: ' + usuario.nome + '</p>'
+container.innerHTML += '<p>Idade: ' + usuario['idade'] + '</p>'
+container.innerHTML += '<p>Email: ' + usuario.email + '</p>'
 
 
-// Adicionar informações ao usuário com inputs (?)
+// Adicionar informações ao usuário com inputs
 
+function adicionarInformacao() {
+  const chave = document.getElementById('chave')
+  const valor = document.getElementById('valor')
+
+  usuario[chave.value] = valor.value
+  console.log(usuario)
+}
 </script>
 </html>

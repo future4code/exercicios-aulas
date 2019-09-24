@@ -10,25 +10,51 @@
 
 <body>
   <div>
-    <div class="list-container">
-      <h3>Lista</h3>
-      <ul id="lista-geral"></ul>
-    </div>
-    <div class="list-container">
+    <ul id="todos">
+      <h3>Todos os alunos</h3>
+    </ul>
+    <ul id="presentes">
       <h3>Presentes</h3>
-      <ul id="lista-presentes"></ul>
-    </div>
-    <div class="list-container">
+    </ul>
+    <ul id="faltantes">
       <h3>Faltantes</h3>
-      <ul id="lista-faltantes"></ul>
-    </div>
+    </ul>
   </div>
 </body>
 <script>
   // Montar lista de chamada, que direciona para lista de presentes
+  const alunos = ['Pedro', 'Paula', 'Soter', 'Golias'];
+
+  const presentes = [];
+  const faltantes = [];
+
+  for (let aluno of alunos) {
+    const estaPresente = confirm(aluno + ' está presente?');
+
+    if (estaPresente) {
+      presentes.push(aluno)
+    } else {
+      faltantes.push(aluno)
+    }
+  }
+
+  console.log('Presentes', presentes)
+  console.log('Faltantes', faltantes)
 
   // Imprimir listas no HTML
+  const listaTodos = document.getElementById('todos')
+  const listaPresentes = document.getElementById('presentes')
+  const listaFaltantes = document.getElementById('faltantes')
 
+  imprimeLista(listaTodos, alunos);
+  imprimeLista(listaPresentes, presentes);
+  imprimeLista(listaFaltantes, faltantes);
+
+  function imprimeLista(elemento, lista) {
+    for (let item of lista) {
+      elemento.innerHTML += '<li>' + item + '</li>';
+    }
+  }
 </script>
 
 </html>
