@@ -38,7 +38,7 @@
 </body>
 <script>
   const container = document.querySelector('.container');
-  const alunos = buscaItemPersistido('alunos');
+  const alunos = buscaItem('alunos');
   if(alunos.length > 0) {
     for (let aluno of alunos) {
     container.innerHTML += '<div class="aluno-card">' + 
@@ -50,7 +50,7 @@
   }
   
 
-  function buscaItemPersistido(chave) {
+  function buscaItem(chave) {
     const valor = window.localStorage.getItem(chave);
     if (valor) {
       return JSON.parse(valor)

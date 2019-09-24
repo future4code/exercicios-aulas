@@ -52,7 +52,7 @@
       email: emailInput.value
     }
 
-    const alunos = buscaItemPersistido('alunos');
+    const alunos = buscaItem('alunos');
     
     alunos.push(aluno);
 
@@ -63,17 +63,17 @@
     emailInput.value = ''
   }
 
-  function buscaItemPersistido(chave) {
+  function buscaItem(chave) {
     const valor = window.localStorage.getItem(chave);
     if (valor) {
-      return JSON.parse(valor)
+      return JSON.parse(valor);
     }
-    return []
+    return [];
   }
 
   function salvaItem(chave, item) {
     if(item && chave) {
-      window.localStorage.setItem(chave, JSON.stringify(item))
+      window.localStorage.setItem(chave, JSON.stringify(item));
     }
   }
 </script>
