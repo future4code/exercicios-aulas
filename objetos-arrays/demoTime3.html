@@ -14,13 +14,30 @@
 //    - Objetos com mesmos valores são diferentes
 //    - Objetos alterados em uma função são alterados na origem
 //    - Para copiar um objeto, não basta colocá-lo em outra variável (tipos estáticos)
+const objeto1 = {
+  nome: 'Pedro',
+  idade: 22
+}
 
+const objeto2 = {
+  email: 'pedro.darvas@gmail.com',
+  turma: 'missao-newton'
+}
+
+console.log(objeto1)
+console.log(objeto2)
 
 //  Destructuring:
 //    - Como copiar objetos
 //    - Como juntar objetos
 //    - Como acrescentar novas propriedades ao copiar um objeto
+const objeto3 = {
+  ...objeto1,
+  email: 'Sao Paulo',
+  ...objeto2,
+}
 
+console.log('Objeto3', objeto3)
 
 
 </script>
