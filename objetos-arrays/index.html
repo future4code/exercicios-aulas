@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Inscrição</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .container input {
+      margin-bottom: 10px;
+    }
+
+    #botao-inscritos {
+      margin-top: 10px;
+    }
+
+    #botao-inscritos a {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Formulário de inscrição Future4</h1>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Nome">
+    <label for="idade">Idade</label>
+    <input type="text" id="idade" name="idade" placeholder="Idade">
+    <label for="idade">Email</label>
+    <input type="text" id="email" name="email" placeholder="Email">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <a href="inscritos.html"><button id="botao-inscritos">Inscritos</button></a>
+  </div>
+</body>
+<script>
+  function cadastrar() {
+    const nomeInput = document.querySelector('#nome')
+    const idadeInput = document.querySelector('#idade')
+    const emailInput = document.querySelector('#email')
+    const aluno = {
+      nome: nomeInput.value,
+      idade: idadeInput.value,
+      email: emailInput.value
+    }
+
+    const alunos = buscaItem('alunos');
+    
+    alunos.push(aluno);
+
+    salvaItem('alunos', alunos);
+
+    nomeInput.value = ''
+    idadeInput.value = ''
+    emailInput.value = ''
+  }
+
+  function buscaItem(chave) {
+    const valor = window.localStorage.getItem(chave);
+    if (valor) {
+      return JSON.parse(valor);
+    }
+    return [];
+  }
+
+  function salvaItem(chave, item) {
+    if(item && chave) {
+      window.localStorage.setItem(chave, JSON.stringify(item));
+    }
+  }
+</script>
+
+</html>
