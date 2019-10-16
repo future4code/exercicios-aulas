@@ -1,18 +1,56 @@
 import React from 'react';
 import './App.css';
 
+
+function MensagemGeral(props) {
+  return props.estaLogado ? (<Home/>) : (<MensagemParaUsuarioNaoLogado/>)
+}
+
+function Home(props) {
+  return(
+    <div>
+      <h2>Bem vindo de votla!</h2>
+      <button className="CustomBtn">Feed</button> 
+      <button className="CustomBtn">Lista de Amigos</button> 
+    </div>
+  )
+}
+
+function MensagemParaUsuarioNaoLogado(props) {
+  return (
+    <div>
+      <h2> Por favor, logue-se </h2>
+    </div>
+  )
+}
+
+
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.mensagemDoBotao = "Login"
+    this.state = {
+      estaLogado: false,
+      // mensagens: []
+      mensagens: ["oi", "tudo bem?"]
+    }
   }
 
-  aoClicar = () => {}
+  aoClicar = () => {
+    this.mensagemDoBotao = this.state.estaLogado ? "Login" : "Sair"
+
+    this.setState({ estaLogado: !this.state.estaLogado })
+  }
 
   render() {
     return (
       <div className="App">
-        <button className="CustomBtn" onClick = {this.aoClicar}></button>
+        <MensagemGeral estaLogado={this.state.estaLogado}/>
+        {
+          (this.state.mensagens.length > 0 && this.state.estaLogado) && 
+            (<div> Você possui {this.state.mensagens.length} mensagens não lidas</div>)
+        }
+        <button className="CustomBtn" onClick = {this.aoClicar}> { this.mensagemDoBotao } </button>
       </div>
     );
   }

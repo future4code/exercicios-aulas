@@ -9,7 +9,37 @@
  *            Aguarde contato para mais informações.”	
  */
 
+ class Cliente {
+   constructor(nome, genero) {
+     this.nome = nome
+     this.genero = genero
 
+     this.ehFeminino = () => {
+      if(this.genero === "feminino") {
+        return true
+      } 
+      return false
+    }
+
+   }
+
+   
+ }
+
+ function geraEmail(cliente) {
+   const boolean2 = false
+   console.log(
+     `
+     Olá, ${cliente.nome}
+      Seja bem-vind${(cliente.ehFeminino() && boolean2) ? "a" : 0 } à nossa plataforma.
+      Estamos muito felizes em poder recebê-l${cliente.ehFeminino() ? "a" : 0}.
+      Aguarde contato para mais informações.
+     `
+   )
+ }
+
+ geraEmail(new Cliente("Goli", "masculino"))
+ geraEmail(new Cliente("Paulinha", "feminino"))
 
 
 

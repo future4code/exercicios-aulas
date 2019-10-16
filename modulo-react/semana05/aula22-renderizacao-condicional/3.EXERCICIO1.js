@@ -6,6 +6,28 @@
  */
 
 
+ function maiorNumero(a, b) {
+   let maior = b
+   let menor = a
+
+   if(a > b) {
+     maior = a
+     menor = b
+   }
+
+   return maior
+ }
+
+ console.log(
+  `
+   INFORMAÇÕES:
+     - o maior número é: ${ maiorNumero(4,5) }
+     - a diferença entre eles é: ${4 - 5}
+  `)
+
+ maiorNumero(4,5)
+ maiorNumero(10,-2)
+
 
 
 

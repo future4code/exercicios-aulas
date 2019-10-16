@@ -7,7 +7,7 @@ const stringComAspas = " Olá, me chamo \"  Goli  \" "
 
 const stringComBarraInvertida = " Uma barra invertida: \\ Agora duas: \\\\ "
 
-const stringComEnter = "Quebra de linha faz assim: \n"
+const stringComEnter = "Quebra de linha faz assim: \nSou uma nova linha"
 
 console.log(meuNome)
 console.log(nomeDoDarvas)

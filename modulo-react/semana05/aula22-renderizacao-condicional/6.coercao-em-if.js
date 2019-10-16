@@ -18,11 +18,26 @@ const variavelNaoNull = {}
 const varaiavelUndefined = undefined
 const variavelNaoUndefined = {}
 
+
 const naoSouUmNumero = NaN 
 const souUmNumero = 1
+
 
 const stringVazia = ""
 const stringNaoVazia = "1"
 
 
+function imprimeNome(pessoa) {
+  if(pessoa) {
+    console.log(pessoa.nome)
+  }
+}
 
+let pessoa = { nome: "Golias" }
+imprimeNome(pessoa)
+
+pessoa = null
+imprimeNome(pessoa)
+
+pessoa = undefined
+imprimeNome(pessoa)
